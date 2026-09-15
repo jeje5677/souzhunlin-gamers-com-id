@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JEJE STORE X KHII - Top Up Mobile Legends cepat, mudah, dan aman.">
+  <title>JEJE STORE X KHII - Top Up Mobile Legends</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    :root {
+      --bg-1: #090512;
+      --bg-2: #21003d;
+      --card: rgba(255, 255, 255, 0.07);
+      --border: rgba(255, 255, 255, 0.13);
+      --purple: #b85cff;
+      --blue: #2584ff;
+      --text-muted: #aaa;
+    }
+
+    body {
+      min-height: 100vh;
+      color: #fff;
+      background:
+        radial-gradient(circle at top right, rgba(115, 35, 190, .35), transparent 35%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2), #07142f);
+    }
+
+    header {
+      padding: 22px 16px;
+      text-align: center;
+      background: rgba(0, 0, 0, .35);
+      border-bottom: 1px solid rgba(184, 92, 255, .45);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: clamp(22px, 5vw, 30px);
+      font-weight: 800;
+      color: #d18aff;
+      letter-spacing: .5px;
+    }
+
+    .tagline {
+      margin-top: 5px;
+      color: #bbb;
+      font-size: 13px;
+    }
+
+    .container {
+      width: min(680px, 100%);
+      margin: 28px auto;
+      padding: 0 15px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      margin-bottom: 18px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.18);
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: clamp(22px, 6vw, 30px);
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      margin: 14px 0 7px;
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #493957;
+      border-radius: 11px;
+      outline: none;
+      background: #100a18;
+      color: #fff;
+      font-size: 15px;
+    }
+
+    input:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(184, 92, 255, .12);
+    }
+
+    .products {
+      display: grid;
+      gap: 11px;
+    }
+
+    .product {
+      padding: 16px;
+      border: 1px solid #493957;
+      border-radius: 13px;
+      background: #110b18;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-1px);
+      border-color: var(--purple);
+    }
+
+    .product.active {
+      border-color: var(--purple);
+      background: #291044;
+      box-shadow: 0 0 0 1px rgba(184, 92, 255, .15);
+    }
+
+    .product-name {
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .price {
+      margin-top: 6px;
+      color: #d49aff;
+      font-weight: 700;
+    }
+
+    .payment {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .pay {
+      padding: 14px 8px;
+      text-align: center;
+      border: 1px solid #493957;
+      border-radius: 11px;
+      background: #110b18;
+      cursor: pointer;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+
+    .pay:hover {
+      border-color: #55aaff;
+    }
+
+    .pay.active {
+      background: #243c73;
+      border-color: #55aaff;
+    }
+
+    .summary {
+      margin-top: 18px;
+      padding: 17px;
+      border-radius: 13px;
+      background: #0d0813;
+      line-height: 1.9;
+      font-size: 14px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 3px 0;
+    }
+
+    .summary-row span:last-child {
+      text-align: right;
+      overflow-wrap: anywhere;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      padding-top: 11px;
+      border-top: 1px solid #333;
+      font-size: 20px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 15px;
+      border: 0;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #7b2cbf, #1677ff);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+
+    .note {
+      margin-top: 10px;
+      color: #999;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    footer {
+      padding: 28px 15px;
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 18px;
+      }
+
+      .payment {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">JEJE STORE X KHII</div>
+    <div class="tagline">TOP UP DIAMONDS & ADVAN SERVER</div>
+  </header>
+
+  <main class="container">
+
+    <section class="card">
+      <h1>🎮 TOP UP MOBILE LEGENDS</h1>
+      <p class="subtitle">Cepat • Mudah • Aman</p>
+
+      <label for="userid">User ID</label>
+      <input id="userid" type="text" inputmode="numeric"
+             placeholder="Masukkan User ID" autocomplete="off">
+
+      <label for="server">Server ID</label>
+      <input id="server" type="text" inputmode="numeric"
+             placeholder="Masukkan Server ID" autocomplete="off">
+    </section>
+
+    <section class="card">
+      <h2>💎 Pilih Produk</h2>
+
+      <div class="products">
+        <div class="product active" data-name="50 Diamonds" data-price="16000">
+          <div class="product-name">💎 50 Diamonds</div>
+          <div class="price">Rp16.000</div>
+        </div>
+
+        <div class="product" data-name="WDP" data-price="31000">
+          <div class="product-name">🎁 WDP</div>
+          <div class="price">Rp31.000</div>
+        </div>
+
+        <div class="product" data-name="Advan Server 3 Set" data-price="7000">
+          <div class="product-name">🛒 Advan Server 3 Set</div>
+          <div class="price">Rp7.000</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>💳 Pilih Pembayaran</h2>
+
+      <div class="payment">
+        <div class="pay active">DANA</div>
+        <div class="pay">GoPay</div>
+        <div class="pay">QRIS</div>
+      </div>
+
+      <div class="summary">
+        <strong>📋 Ringkasan Pesanan</strong>
+
+        <div class="summary-row">
+          <span>Produk</span>
+          <span id="summaryProduct">50 Diamonds</span>
+        </div>
+
+        <div class="summary-row">
+          <span>User ID</span>
+          <span id="summaryUser">-</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Server</span>
+          <span id="summaryServer">-</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Pembayaran</span>
+          <span id="summaryPayment">DANA</span>
+        </div>
+
+        <div class="total">
+          <span>Total</span>
+          <strong id="total">Rp16.000</strong>
+        </div>
+      </div>
+
+      <button type="button" id="orderButton">
+        🛒 PESAN SEKARANG
+      </button>
+
+      <p class="note">Pesanan akan diteruskan melalui WhatsApp.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 JEJE STORE X KHII • All Rights Reserved
+  </footer>
+
+  <script>
+    let productName = "50 Diamonds";
+    let productPrice = 16000;
+    let payment = "DANA";
+
+    const products = document.querySelectorAll(".product");
+    const payments = document.querySelectorAll(".pay");
+
+    function formatRupiah(number) {
+      return "Rp" + number.toLocaleString("id-ID");
+    }
+
+    products.forEach(product => {
+      product.addEventListener("click", () => {
+        products.forEach(item => item.classList.remove("active"));
+        product.classList.add("active");
+
+        productName = product.dataset.name;
+        productPrice = Number(product.dataset.price);
+
+        document.getElementById("summaryProduct").textContent = productName;
+        document.getElementById("total").textContent = formatRupiah(productPrice);
+      });
+    });
+
+    payments.forEach(pay => {
+      pay.addEventListener("click", () => {
+        payments.forEach(item => item.classList.remove("active"));
+        pay.classList.add("active");
+
+        payment = pay.textContent.trim();
+        document.getElementById("summaryPayment").textContent = payment;
+      });
+    });
+
+    document.getElementById("userid").addEventListener("input", event => {
+      document.getElementById("summaryUser").textContent =
+        event.target.value.trim() || "-";
+    });
+
+    document.getElementById("server").addEventListener("input", event => {
+      document.getElementById("summaryServer").textContent =
+        event.target.value.trim() || "-";
+    });
+
+    document.getElementById("orderButton").addEventListener("click", () => {
+      const userId = document.getElementById("userid").value.trim();
+      const server = document.getElementById("server").value.trim();
+
+      if (!userId) {
+        alert("Masukkan User ID terlebih dahulu.");
+        document.getElementById("userid").focus();
+        return;
+      }
+
+      if (!server) {
+        alert("Masukkan Server ID terlebih dahulu.");
+        document.getElementById("server").focus();
+        return;
+      }
+
+      const message =
+        "Halo JEJE STORE X KHII, saya ingin order:%0A%0A" +
+        "Game: Mobile Legends%0A" +
+        "Produk: " + encodeURIComponent(productName) + "%0A" +
+        "Harga: " + encodeURIComponent(formatRupiah(productPrice)) + "%0A" +
+        "User ID: " + encodeURIComponent(userId) + "%0A" +
+        "Server ID: " + encodeURIComponent(server) + "%0A" +
+        "Pembayaran: " + encodeURIComponent(payment);
+
+      const whatsappNumber = "6283112005945";
+      window.open(
+        "https://wa.me/" + whatsappNumber + "?text=" + message,
+        "_blank",
+        "noopener,noreferrer"
+      );
+    });
+  </script>
+
+</body>
+</html>
